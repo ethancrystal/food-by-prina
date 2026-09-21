@@ -1,8 +1,8 @@
 import "@/App.css";
-import Experience from "./components/Experience";
+import RestaurantSite from "./components/restaurant/RestaurantSite";
 
 function App() {
-  return <Experience />;
+  return <RestaurantSite />;
 }
 
 export default App;
