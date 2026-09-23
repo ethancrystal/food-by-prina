@@ -1,5 +1,5 @@
 import React from 'react';
-import { BRAND, PAYMENT_METHODS, PAYMENT_NOTE, LOCATION } from '@/data/menu';
+import { ALWAYS_OPEN, BRAND, PAYMENT_METHODS, PAYMENT_NOTE, LOCATION } from '@/data/menu';
 import StoreStatus, { HoursList } from '@/components/order/StoreStatus';
 import { Eyebrow, Title, GoldButton } from './ui';
 
@@ -19,9 +19,15 @@ export function HoursInfo() {
           <Eyebrow>Hours</Eyebrow>
           <Title className="!text-3xl sm:!text-4xl">When we’re cooking</Title>
           <StoreStatus className="mt-4" />
-          <div className="mt-6 rounded-2xl border border-pk-gold/30 px-5 py-2">
-            <HoursList />
-          </div>
+          {ALWAYS_OPEN ? (
+            <p className="mt-6 text-pk-ink/75">
+              Text {BRAND.phone} any time to place your order. We’ll confirm your pickup or delivery time.
+            </p>
+          ) : (
+            <div className="mt-6 rounded-2xl border border-pk-gold/30 px-5 py-2">
+              <HoursList />
+            </div>
+          )}
         </div>
         <div>
           <Eyebrow>Good to know</Eyebrow>

@@ -1,4 +1,4 @@
-import { HOURS, TIMEZONE } from '@/data/menu';
+import { ALWAYS_OPEN, HOURS, TIMEZONE } from '@/data/menu';
 
 const DAY_NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -30,13 +30,17 @@ function nowInTz(date = new Date()) {
   };
 }
 
-// Returns { open, label, detail } e.g. "Open now" / "Closes 8:00 PM".
+// Returns { open, label, detail } e.g. "Open with a smile" / "Closes 8:00 PM".
 export function getStoreStatus(date = new Date()) {
+  if (ALWAYS_OPEN) {
+    return { open: true, label: 'Open with a smile', detail: 'Text us anytime to order' };
+  }
+
   const { day, minutes } = nowInTz(date);
   const today = HOURS[day];
 
   if (today.open && minutes >= toMinutes(today.open) && minutes < toMinutes(today.close)) {
-    return { open: true, label: 'Open now', detail: `Closes ${formatTime(today.close)}` };
+    return { open: true, label: 'Open with a smile', detail: `Closes ${formatTime(today.close)}` };
   }
 
   // Find the next opening, starting later today.

@@ -24,7 +24,12 @@ export const NAV = [
   { label: 'Contact', href: '/#contact' },
 ];
 
-// Opening hours drive the "Open now / Closed" badge. Times are 24h, Eastern.
+// While true, the status badge always reads "Open with a smile" and the hours
+// list is hidden (the hours below are placeholders). Set to false once Prina's
+// real hours are in, to bring back the live open/closed badge.
+export const ALWAYS_OPEN = true;
+
+// Opening hours drive the "Open with a smile / Closed" badge. Times are 24h, Eastern.
 // TODO: PLACEHOLDER HOURS — confirm Prina's real days and hours before launch.
 export const TIMEZONE = 'America/New_York';
 export const HOURS = [
