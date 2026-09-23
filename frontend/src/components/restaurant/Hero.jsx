@@ -36,16 +36,18 @@ export default function Hero() {
           </GoldButton>
         </div>
         {/* Payment methods, as on the flyer */}
-        <div className="mt-6 inline-flex flex-wrap items-center gap-x-4 gap-y-1 rounded-2xl border border-pk-gold/40 bg-pk-bg/70 backdrop-blur px-4 py-2.5 text-sm text-pk-ink/80">
-          {PAYMENT_METHODS.map((p, i) => (
-            <React.Fragment key={p.label}>
-              {i > 0 && <span className="h-4 w-px bg-pk-gold/40" aria-hidden="true" />}
-              <span>
-                {p.label} <span className="font-semibold text-pk-ink">{p.value}</span>
-              </span>
-            </React.Fragment>
-          ))}
-          <span className="basis-full text-xs text-pk-gold-light/90">{PAYMENT_NOTE}</span>
+        <div className="mt-6 w-fit max-w-full rounded-2xl border border-pk-gold/40 bg-pk-bg/70 backdrop-blur px-4 py-2.5 text-sm text-pk-ink/80">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            {PAYMENT_METHODS.map((p, i) => (
+              <React.Fragment key={p.label}>
+                {i > 0 && <span className="h-4 w-px bg-pk-gold/40" aria-hidden="true" />}
+                <span>
+                  {p.label} <span className="font-semibold text-pk-ink">{p.value}</span>
+                </span>
+              </React.Fragment>
+            ))}
+          </div>
+          <p className="mt-1 text-xs text-pk-gold-light/90">{PAYMENT_NOTE}</p>
         </div>
       </div>
     </section>
