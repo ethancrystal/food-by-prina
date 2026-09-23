@@ -7,12 +7,28 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        script: ['"Dancing Script"', 'cursive'],
+        body: ['"Space Grotesk"', 'sans-serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
+        // Prina's Kitchen palette — change these to re-theme the whole site.
+        pk: {
+          bg: '#0d0b09',        // page background
+          panel: '#161110',     // cards / raised panels
+          ink: '#f5efe4',       // main text (warm white)
+          red: '#B3261E',       // primary buttons / fills
+          'red-hover': '#D23A2F',
+          'red-text': '#F0665C', // red used for text on dark backgrounds
+          gold: '#cda039',      // borders and trim
+          'gold-light': '#e9c874',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
