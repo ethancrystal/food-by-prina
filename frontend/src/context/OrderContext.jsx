@@ -1,5 +1,13 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { FREE_DELIVERY_MIN_PLATTERS, PAYMENT_SURCHARGE, FOOD } from '@/data/menu';
+import {
+  FREE_DELIVERY_MIN_PLATTERS,
+  PAYMENT_SURCHARGE,
+  FOOD,
+  DESSERTS,
+  BEVERAGES,
+  SIDES,
+  SIDES_PER_PLATTER,
+} from '@/data/menu';
 
 const OrderContext = createContext(null);
 
@@ -21,11 +29,42 @@ const save = (key, value) => {
 };
 
 const FOOD_IDS = new Set(FOOD.map((f) => f.id));
+const MENU_BY_ID = new Map([...FOOD, ...DESSERTS, ...BEVERAGES].map((i) => [i.id, i]));
+const SIDE_NAMES = new Set(SIDES.map((s) => s.name));
+const MODES = ['pickup', 'delivery'];
+
+// A saved cart can be stale (menu or prices changed since it was saved) or corrupted.
+// Keep only lines that still match the current menu, and always take name and price
+// from the menu rather than from storage.
+function restoreCart() {
+  const saved = load('pk_cart', []);
+  if (!Array.isArray(saved)) return [];
+  return saved.flatMap((line) => {
+    const item = line && MENU_BY_ID.get(line.id);
+    if (!item || typeof line.key !== 'string' || !Number.isInteger(line.qty) || line.qty < 1) return [];
+    const sides = Array.isArray(line.sides) ? line.sides : [];
+    if (item.sides && (sides.length !== SIDES_PER_PLATTER || !sides.every((s) => SIDE_NAMES.has(s)))) return [];
+    if (item.styles && !item.styles.includes(line.style)) return [];
+    return [{ ...line, name: item.name, price: item.price, sides: item.sides ? sides : [] }];
+  });
+}
+
+function restoreMode() {
+  const saved = load('pk_mode', 'pickup');
+  return MODES.includes(saved) ? saved : 'pickup';
+}
+
+function restoreProfile() {
+  const saved = load('pk_profile', null);
+  return saved && typeof saved === 'object' && typeof saved.name === 'string' && typeof saved.phone === 'string'
+    ? saved
+    : null;
+}
 
 export function OrderProvider({ children }) {
-  const [cart, setCart] = useState(() => load('pk_cart', []));
-  const [mode, setMode] = useState(() => load('pk_mode', 'pickup'));
-  const [profile, setProfile] = useState(() => load('pk_profile', null));
+  const [cart, setCart] = useState(restoreCart);
+  const [mode, setMode] = useState(restoreMode);
+  const [profile, setProfile] = useState(restoreProfile);
   const [cartOpen, setCartOpen] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
 

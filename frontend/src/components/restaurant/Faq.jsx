@@ -6,6 +6,7 @@ function FaqItem({ item, open, onToggle }) {
     <div className="border-b border-pk-gold/20 py-5">
       <button
         onClick={onToggle}
+        aria-expanded={open}
         className="w-full flex items-center justify-between gap-4 text-left"
       >
         <span className="font-display text-base sm:text-lg text-pk-ink">{item.q}</span>

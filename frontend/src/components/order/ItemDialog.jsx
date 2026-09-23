@@ -11,10 +11,11 @@ function Chip({ active, disabled, onClick, children, testId }) {
       type="button"
       onClick={onClick}
       disabled={disabled}
+      aria-pressed={!!active}
       data-testid={testId}
       className={`rounded-full border px-4 py-2 text-sm transition-colors ${
         active
-          ? 'bg-pk-red border border-pk-gold border-pk-gold text-white font-medium'
+          ? 'bg-pk-red border-pk-gold text-white font-medium'
           : 'border-pk-gold/35 text-pk-ink/80 hover:border-pk-gold-light disabled:opacity-35 disabled:hover:border-pk-gold/35'
       }`}
     >
