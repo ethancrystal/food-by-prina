@@ -14,8 +14,8 @@ function Chip({ active, disabled, onClick, children, testId }) {
       data-testid={testId}
       className={`rounded-full border px-4 py-2 text-sm transition-colors ${
         active
-          ? 'bg-[#cda039] border-[#cda039] text-[#0d0b09] font-medium'
-          : 'border-[#cda03955] text-[#f5efe4]/80 hover:border-[#e9c874] disabled:opacity-35 disabled:hover:border-[#cda03955]'
+          ? 'bg-pk-red border border-pk-gold border-pk-gold text-white font-medium'
+          : 'border-pk-gold/35 text-pk-ink/80 hover:border-pk-gold-light disabled:opacity-35 disabled:hover:border-pk-gold/35'
       }`}
     >
       {children}
@@ -72,16 +72,16 @@ export default function ItemDialog({ item, onClose }) {
           <div>
             <div className="flex items-start justify-between gap-4 pr-6">
               <DialogTitle className="font-display text-2xl font-normal">{item.name}</DialogTitle>
-              <span className="font-display text-2xl text-[#e9c874]">{money(item.price)}</span>
+              <span className="font-display text-2xl text-pk-red-text">{money(item.price)}</span>
             </div>
-            {item.desc && <DialogDescription className="mt-2 text-[#f5efe4]/65">{item.desc}</DialogDescription>}
+            {item.desc && <DialogDescription className="mt-2 text-pk-ink/65">{item.desc}</DialogDescription>}
           </div>
 
           {needsStyle && (
             <fieldset>
               <legend className="flex w-full justify-between text-sm font-medium mb-3">
                 <span>Chicken style</span>
-                <span className="text-xs text-[#e9c874]/80">Required · pick 1</span>
+                <span className="text-xs text-pk-red-text/80">Required · pick 1</span>
               </legend>
               <div className="flex flex-wrap gap-2">
                 {item.styles.map((s) => (
@@ -97,7 +97,7 @@ export default function ItemDialog({ item, onClose }) {
             <fieldset>
               <legend className="flex w-full justify-between text-sm font-medium mb-3">
                 <span>Choose your sides</span>
-                <span className="text-xs text-[#e9c874]/80">
+                <span className="text-xs text-pk-red-text/80">
                   Required · {sides.length}/{SIDES_PER_PLATTER}
                 </span>
               </legend>
@@ -114,7 +114,7 @@ export default function ItemDialog({ item, onClose }) {
                   </Chip>
                 ))}
               </div>
-              <p className="text-xs text-[#f5efe4]/45 mt-3">Served with yellow rice.</p>
+              <p className="text-xs text-pk-ink/45 mt-3">Served with yellow rice.</p>
             </fieldset>
           )}
 
@@ -130,7 +130,7 @@ export default function ItemDialog({ item, onClose }) {
           </label>
 
           <div className="flex items-center gap-4">
-            <div className="inline-flex items-center rounded-full border border-[#cda03955]">
+            <div className="inline-flex items-center rounded-full border border-pk-gold/35">
               <button className="w-10 h-10 text-lg" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease">
                 −
               </button>

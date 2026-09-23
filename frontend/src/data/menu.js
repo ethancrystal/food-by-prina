@@ -7,8 +7,7 @@
 export const BRAND = {
   name: "Prina's Kitchen",
   tagline: 'Made with love. Served with pride.',
-  blurb:
-    "A home-kitchen soul food & seafood platter service — every order cooked fresh, seasoned right, and packed up with care.",
+  blurb: 'Soul food and seafood platters, seasoned right and packed with care. Order for pickup or delivery.',
   phone: '(215) 397-0159',
   phoneHref: 'tel:+12153970159',
   smsHref: 'sms:+12153970159',
@@ -19,9 +18,9 @@ export const BRAND = {
 };
 
 export const NAV = [
-  { label: 'Home', href: '/' },
   { label: 'Menu', href: '/menu' },
   { label: 'How to Order', href: '/#order' },
+  { label: 'FAQ', href: '/#faq' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -141,11 +140,6 @@ export const PAYMENT_NOTE = 'Please send an extra $1 for these payment methods.'
 export const PAYMENT_SURCHARGE = 1;
 export const FREE_DELIVERY_MIN_PLATTERS = 3;
 
-export const GALLERY = [
-  SEAFOOD_PAN.img,
-  ...MEATS.map((m) => m.img),
-  ...SIDES.map((s) => s.img),
-];
 
 export const FAQ = [
   {

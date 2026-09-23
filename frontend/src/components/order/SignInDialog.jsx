@@ -35,7 +35,7 @@ export default function SignInDialog() {
     <Dialog open={signInOpen} onOpenChange={setSignInOpen}>
       <DialogContent className={`${panel} max-w-md rounded-2xl`}>
         <DialogTitle className="font-display text-2xl font-normal">{profile ? 'Your details' : 'Sign in'}</DialogTitle>
-        <DialogDescription className="text-[#f5efe4]/60 -mt-2">
+        <DialogDescription className="text-pk-ink/60 -mt-2">
           Save your name, phone and address on this device so ordering takes seconds next time.
         </DialogDescription>
         <form onSubmit={submit} className="space-y-4">

@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <OrderProvider>
         <ScrollToTop />
-        <div className="bg-[#0d0b09] min-h-screen">
+        <div className="bg-pk-bg min-h-screen">
           <Header />
           <main>
             <Routes>

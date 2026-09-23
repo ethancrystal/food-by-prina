@@ -1,46 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { BRAND, HERO_IMAGE } from '@/data/menu';
 import StoreStatus from '@/components/order/StoreStatus';
+import { GoldButton } from './ui';
 
 export default function Hero() {
   return (
-    <section id="top" className="relative min-h-[92vh] flex items-end sm:items-center overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${HERO_IMAGE})` }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0d0b09] via-[#0d0b09]/80 to-[#0d0b09]/30" />
-      <div className="absolute inset-0 bg-[#0d0b09]/25" />
+    <section id="top" className="relative min-h-[88vh] flex items-end overflow-hidden">
+      <img src={HERO_IMAGE} alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-pk-bg via-pk-bg/60 to-pk-bg/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-pk-bg/80 via-pk-bg/20 to-transparent" />
 
-      <div className="relative max-w-6xl mx-auto w-full px-5 sm:px-8 pb-16 sm:pb-0 pt-40 sm:pt-0">
-        <p className="uppercase tracking-[0.25em] text-xs sm:text-sm text-[#e9c874] mb-4">
-          Soul Food &amp; Seafood Platters
-        </p>
-        <h1 className="font-script text-5xl sm:text-7xl lg:text-8xl text-[#f5efe4] leading-[0.95] mb-2">
-          {BRAND.name}
+      <div className="relative max-w-6xl mx-auto w-full px-5 sm:px-8 pb-16 sm:pb-24 pt-32">
+        <p className="font-script text-2xl sm:text-3xl text-pk-red-text mb-3">Soul food &amp; seafood platters</p>
+        <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl text-pk-ink leading-[1.05] max-w-3xl">
+          Made with love.
+          <br />
+          Served with pride.
         </h1>
-        <p className="font-display text-lg sm:text-xl text-[#e9c874] tracking-wide mb-6">
-          {BRAND.tagline}
-        </p>
-        <p className="max-w-xl text-[#f5efe4]/80 text-base sm:text-lg mb-4">{BRAND.blurb}</p>
-        <StoreStatus className="mb-8" />
-
-        <div className="flex flex-wrap gap-4">
-          <Link
-            to="/menu"
-            className="inline-flex items-center justify-center rounded-full bg-[#cda039] px-7 py-3.5 text-sm sm:text-base font-semibold text-[#0d0b09] hover:bg-[#e9c874] transition-colors"
-            data-testid="hero-order-link"
-          >
+        <p className="mt-5 max-w-xl text-pk-ink/75 text-base sm:text-lg">{BRAND.blurb}</p>
+        <StoreStatus className="mt-5" />
+        <div className="mt-8 flex flex-wrap gap-3">
+          <GoldButton to="/menu" data-testid="hero-order-link">
             Order online
-          </Link>
-          <a
-            href={BRAND.smsHref}
-            className="inline-flex items-center justify-center rounded-full border border-[#f5efe4]/40 px-7 py-3.5 text-sm sm:text-base font-medium text-[#f5efe4] hover:border-[#e9c874] hover:text-[#e9c874] transition-colors"
-          >
-            Text {BRAND.phone}
-          </a>
+          </GoldButton>
+          <GoldButton to="/menu" outline>
+            View menu
+          </GoldButton>
         </div>
       </div>
     </section>

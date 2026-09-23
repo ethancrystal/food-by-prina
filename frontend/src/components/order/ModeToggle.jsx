@@ -7,7 +7,7 @@ export default function ModeToggle({ className = '' }) {
     <div
       role="radiogroup"
       aria-label="Pickup or delivery"
-      className={`inline-flex rounded-full border border-[#cda03966] p-1 bg-[#0d0b09] ${className}`}
+      className={`inline-flex rounded-full border border-pk-gold/40 p-1 bg-pk-bg ${className}`}
     >
       {['pickup', 'delivery'].map((m) => (
         <button
@@ -17,7 +17,7 @@ export default function ModeToggle({ className = '' }) {
           onClick={() => setMode(m)}
           data-testid={`mode-${m}`}
           className={`px-5 py-2 rounded-full text-sm font-medium capitalize transition-colors ${
-            mode === m ? 'bg-[#cda039] text-[#0d0b09]' : 'text-[#f5efe4]/75 hover:text-[#e9c874]'
+            mode === m ? 'bg-pk-red border border-pk-gold text-white' : 'border border-transparent text-pk-ink/75 hover:text-pk-red-text'
           }`}
         >
           {m}

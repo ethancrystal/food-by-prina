@@ -16,11 +16,11 @@ export function useStoreStatus() {
 export function HoursList() {
   const today = todayIndex();
   return (
-    <ul className="divide-y divide-[#cda03922]">
+    <ul className="divide-y divide-pk-gold/15">
       {HOURS.map((h, i) => (
         <li
           key={h.day}
-          className={`flex justify-between py-2.5 text-sm ${i === today ? 'text-[#e9c874] font-medium' : 'text-[#f5efe4]/75'}`}
+          className={`flex justify-between py-2.5 text-sm ${i === today ? 'text-pk-red-text font-medium' : 'text-pk-ink/75'}`}
         >
           <span>{h.day}</span>
           <span>{h.open ? `${formatTime(h.open)} – ${formatTime(h.close)}` : 'Closed'}</span>
@@ -38,8 +38,8 @@ export default function StoreStatus({ className = '' }) {
       <span className={`inline-flex flex-wrap items-center gap-x-1.5 text-sm ${className}`} data-testid="store-status">
         <span className={`w-2 h-2 rounded-full ${status.open ? 'bg-emerald-400' : 'bg-red-400'}`} />
         <span className={status.open ? 'text-emerald-300 font-medium' : 'text-red-300 font-medium'}>{status.label}</span>
-        <span className="text-[#f5efe4]/55">· {status.detail} ·</span>
-        <button onClick={() => setOpen(true)} className="underline underline-offset-2 text-[#f5efe4]/70 hover:text-[#e9c874]">
+        <span className="text-pk-ink/55">· {status.detail} ·</span>
+        <button onClick={() => setOpen(true)} className="underline underline-offset-2 text-pk-ink/70 hover:text-pk-red-text">
           view hours
         </button>
       </span>
