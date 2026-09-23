@@ -40,7 +40,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             {PAYMENT_METHODS.map((p, i) => (
               <React.Fragment key={p.label}>
-                {i > 0 && <span className="h-4 w-px bg-pk-gold/40" aria-hidden="true" />}
+                {i > 0 && <span className="hidden sm:block h-4 w-px bg-pk-gold/40" aria-hidden="true" />}
                 <span>
                   {p.label} <span className="font-semibold text-pk-ink">{p.value}</span>
                 </span>
