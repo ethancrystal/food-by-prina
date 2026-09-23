@@ -43,6 +43,22 @@ pip install -r requirements.txt
 uvicorn server:app --reload --port 8001
 ```
 
+## Photo credits
+
+Menu photos in `frontend/public/images/menu/` are from [Unsplash](https://unsplash.com) and used under the [Unsplash License](https://unsplash.com/license) (free for commercial use, no attribution required — credited here anyway). They are stand-ins until Prina's own food photos are ready.
+
+| File | Photographer | Source |
+|---|---|---|
+| `salmon.jpg` | jeff ahmadi | [unsplash.com/photos/Iq0rbPBXJ8Y](https://unsplash.com/photos/Iq0rbPBXJ8Y) |
+| `stuffed-salmon.jpg` | You Le | [unsplash.com/photos/CAiTZ4kywA4](https://unsplash.com/photos/CAiTZ4kywA4) |
+| `oxtails.jpg` | yvonne lee harijanto | [unsplash.com/photos/xKSRpUH0VZo](https://unsplash.com/photos/xKSRpUH0VZo) |
+| `chicken.jpg` | Jim Sosengphet | [unsplash.com/photos/CgXEzyC2fNA](https://unsplash.com/photos/CgXEzyC2fNA) |
+| `mac-cheese.jpg` | Crissta Ames-Walle | [unsplash.com/photos/ZTySs4957Qc](https://unsplash.com/photos/ZTySs4957Qc) |
+| `yams.jpg` | Christina Rumpf | [unsplash.com/photos/gUU4MF87Ipw](https://unsplash.com/photos/gUU4MF87Ipw) |
+| `collard-greens.jpg` | Samuel Regan-Asante | [unsplash.com/photos/AWh7x7w3vvs](https://unsplash.com/photos/AWh7x7w3vvs) |
+| `string-beans.jpg` | Andrey Metelev | [unsplash.com/photos/yXaa12uQQ3Y](https://unsplash.com/photos/yXaa12uQQ3Y) |
+| `lamb-chops.jpg` | Snappr | [unsplash.com/photos/wqsUZB9D0Lk](https://unsplash.com/photos/wqsUZB9D0Lk) |
+
 ## Before launch: content still to confirm
 
 These are marked `TODO` in `frontend/src/data/menu.js`:
