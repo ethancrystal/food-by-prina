@@ -113,3 +113,11 @@ code {
         border-bottom-color: inherit;
     }
 }
+
+/* Hide horizontal scrollbar on the menu category tabs */
+.no-scrollbar {
+    scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

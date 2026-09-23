@@ -25,18 +25,18 @@ export default function Ordering() {
         <div className="text-center mb-12">
           <p className="uppercase tracking-[0.25em] text-xs text-[#e9c874] mb-4">How to Order</p>
           <h2 className="font-display text-3xl sm:text-5xl text-[#f5efe4] mb-4">
-            Text, Confirm, Enjoy
+            Order in Three Steps
           </h2>
           <p className="text-[#f5efe4]/70 max-w-xl mx-auto">
-            No app needed — call or text your order in and pay right from your phone.
+            Build your order online, send it to us by text, and pay right from your phone.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 mb-14">
           {[
-            { n: '01', t: 'Send your order', d: `Text or call ${BRAND.phone} with your platter picks and 2 sides.` },
-            { n: '02', t: 'Pay your way', d: 'Confirm your total, then pay by Apple Pay or Cashapp.' },
-            { n: '03', t: 'Pickup or delivery', d: 'Delivery fee applies — free with 3+ platters ordered.' },
+            { n: '01', t: 'Build your order', d: 'Choose pickup or delivery, then pick your platters and 2 sides each.' },
+            { n: '02', t: 'Send it by text', d: `Checkout sends your order straight to ${BRAND.phone}.` },
+            { n: '03', t: 'Pay your way', d: 'Pay by Apple Pay or Cashapp. Free delivery with 3+ platters.' },
           ].map((s) => (
             <div key={s.n} className="rounded-2xl border border-[#cda03933] bg-[#151109] p-6">
               <span className="font-display text-[#e9c874] text-2xl">{s.n}</span>

@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BRAND, HERO_IMAGE } from '@/data/menu';
+import StoreStatus from '@/components/order/StoreStatus';
 
 export default function Hero() {
   return (
@@ -22,21 +24,22 @@ export default function Hero() {
         <p className="font-display text-lg sm:text-xl text-[#e9c874] tracking-wide mb-6">
           {BRAND.tagline}
         </p>
-        <p className="max-w-xl text-[#f5efe4]/80 text-base sm:text-lg mb-9">{BRAND.blurb}</p>
+        <p className="max-w-xl text-[#f5efe4]/80 text-base sm:text-lg mb-4">{BRAND.blurb}</p>
+        <StoreStatus className="mb-8" />
 
         <div className="flex flex-wrap gap-4">
-          <a
-            href={BRAND.smsHref}
+          <Link
+            to="/menu"
             className="inline-flex items-center justify-center rounded-full bg-[#cda039] px-7 py-3.5 text-sm sm:text-base font-semibold text-[#0d0b09] hover:bg-[#e9c874] transition-colors"
             data-testid="hero-order-link"
           >
-            Order Now — Text {BRAND.phone}
-          </a>
+            Order online
+          </Link>
           <a
-            href="#menu"
+            href={BRAND.smsHref}
             className="inline-flex items-center justify-center rounded-full border border-[#f5efe4]/40 px-7 py-3.5 text-sm sm:text-base font-medium text-[#f5efe4] hover:border-[#e9c874] hover:text-[#e9c874] transition-colors"
           >
-            View Menu
+            Text {BRAND.phone}
           </a>
         </div>
       </div>

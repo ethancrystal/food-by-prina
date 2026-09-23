@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BRAND } from '@/data/menu';
 
 export default function Contact() {
@@ -8,13 +9,19 @@ export default function Contact() {
         <p className="uppercase tracking-[0.25em] text-xs text-[#e9c874] mb-4">Get In Touch</p>
         <h2 className="font-display text-3xl sm:text-5xl text-[#f5efe4] mb-6">Ready to Order?</h2>
         <p className="text-[#f5efe4]/70 mb-9 max-w-xl mx-auto">
-          Text or call to place your order. {BRAND.serviceArea}.
+          Order online, or text or call us. {BRAND.serviceArea}.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-10">
+          <Link
+            to="/menu"
+            className="inline-flex items-center justify-center rounded-full bg-[#cda039] px-7 py-3.5 text-sm sm:text-base font-semibold text-[#0d0b09] hover:bg-[#e9c874] transition-colors"
+          >
+            Order online
+          </Link>
           <a
             href={BRAND.smsHref}
-            className="inline-flex items-center justify-center rounded-full bg-[#cda039] px-7 py-3.5 text-sm sm:text-base font-semibold text-[#0d0b09] hover:bg-[#e9c874] transition-colors"
+            className="inline-flex items-center justify-center rounded-full border border-[#f5efe4]/40 px-7 py-3.5 text-sm sm:text-base font-medium text-[#f5efe4] hover:border-[#e9c874] hover:text-[#e9c874] transition-colors"
           >
             Text {BRAND.phone}
           </a>

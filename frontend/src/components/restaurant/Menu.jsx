@@ -1,5 +1,6 @@
 import React from 'react';
-import { MEATS, MEATS_NOTE, SEAFOOD_PAN, BRAND } from '@/data/menu';
+import { Link } from 'react-router-dom';
+import { MEATS, MEATS_NOTE, SEAFOOD_PAN } from '@/data/menu';
 
 function MeatCard({ item }) {
   return (
@@ -69,13 +70,22 @@ export default function Menu() {
                 </li>
               ))}
             </ul>
-            <a
-              href={BRAND.smsHref}
+            <Link
+              to="/menu"
               className="inline-flex w-fit items-center justify-center rounded-full bg-[#cda039] px-6 py-3 text-sm font-semibold text-[#0d0b09] hover:bg-[#e9c874] transition-colors"
             >
               Order the Seafood Pan
-            </a>
+            </Link>
           </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            to="/menu"
+            className="inline-flex items-center justify-center rounded-full border border-[#cda039] px-8 py-3.5 text-sm font-semibold text-[#e9c874] hover:bg-[#cda039] hover:text-[#0d0b09] transition-colors"
+          >
+            View full menu &amp; order
+          </Link>
         </div>
       </div>
     </section>

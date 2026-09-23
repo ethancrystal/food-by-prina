@@ -19,38 +19,68 @@ export const BRAND = {
 };
 
 export const NAV = [
-  { label: 'Menu', href: '#menu' },
-  { label: 'How to Order', href: '#order' },
-  { label: 'Sides', href: '#sides' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Menu', href: '/menu' },
+  { label: 'How to Order', href: '/#order' },
+  { label: 'Contact', href: '/#contact' },
 ];
+
+// Opening hours drive the "Open now / Closed" badge. Times are 24h, Eastern.
+// TODO: PLACEHOLDER HOURS — confirm Prina's real days and hours before launch.
+export const TIMEZONE = 'America/New_York';
+export const HOURS = [
+  { day: 'Sunday', open: '13:00', close: '20:00' },
+  { day: 'Monday', open: null, close: null },
+  { day: 'Tuesday', open: null, close: null },
+  { day: 'Wednesday', open: null, close: null },
+  { day: 'Thursday', open: '13:00', close: '20:00' },
+  { day: 'Friday', open: '13:00', close: '20:00' },
+  { day: 'Saturday', open: '13:00', close: '20:00' },
+];
+
+// TODO: add pickup address/area once confirmed.
+export const LOCATION = 'Pickup & delivery available';
+
+export const CHICKEN_STYLES = ['Fried', 'BBQ', 'Buffalo', 'Thai Chili'];
+export const SIDES_PER_PLATTER = 2;
 
 export const HERO_IMAGE = '/images/menu/seafood-pan.jpg';
 
 export const MEATS = [
   {
+    id: 'salmon',
     name: 'Salmon',
     price: 40,
+    desc: 'Seasoned salmon fillet with yellow rice and 2 sides.',
     img: '/images/menu/salmon.jpg',
   },
   {
+    id: 'stuffed-salmon',
     name: 'Stuffed Salmon w/ Crab',
     price: 45,
+    desc: 'Salmon stuffed with crab, served with yellow rice and 2 sides.',
     img: '/images/menu/stuffed-salmon.jpg',
   },
   {
+    id: 'lamb-chops',
     name: 'Lamb Chops (3)',
     price: 45,
+    desc: 'Three lamb chops with yellow rice and 2 sides.',
     img: '/images/menu/lamb-chops.jpg',
   },
   {
+    id: 'oxtails',
     name: 'Oxtails',
     price: 45,
+    desc: 'Tender oxtails with yellow rice and 2 sides.',
     img: '/images/menu/oxtails.jpg',
   },
   {
+    id: 'chicken',
     name: 'Chicken',
     price: 30,
+    desc: 'Your choice of Fried, BBQ, Buffalo or Thai Chili, with yellow rice and 2 sides.',
+    styles: CHICKEN_STYLES,
     note: 'Fried, BBQ, Buffalo or Thai Chili',
     img: '/images/menu/chicken.jpg',
   },
@@ -59,7 +89,9 @@ export const MEATS = [
 export const MEATS_NOTE = 'All platters come with yellow rice & choice of 2 sides.';
 
 export const SEAFOOD_PAN = {
+  id: 'seafood-pan',
   name: 'Seafood Pan',
+  desc: 'Alaskan crab, jumbo shrimp, corn on the cob and broccoli.',
   price: 80,
   includes: ['Alaskan Crab', 'Jumbo Shrimp', 'Corn on the Cob', 'Broccoli'],
   img: '/images/menu/seafood-pan.jpg',
@@ -84,6 +116,17 @@ export const SIDES = [
   },
 ];
 
+// Items for the ordering page. Platters (sides: true) require picking 2 sides.
+export const FOOD = [
+  ...MEATS.map((m) => ({ ...m, sides: true })),
+  { ...SEAFOOD_PAN, sides: false },
+];
+
+// TODO: the client wants Desserts and Beverages tabs but has not sent items yet.
+// Add entries shaped like { id, name, price, desc, img } and they appear automatically.
+export const DESSERTS = [];
+export const BEVERAGES = [];
+
 export const DELIVERY_NOTES = [
   'Delivery fee applies',
   '3 or more platters = free delivery',
@@ -95,6 +138,8 @@ export const PAYMENT_METHODS = [
 ];
 
 export const PAYMENT_NOTE = 'Please send an extra $1 for these payment methods.';
+export const PAYMENT_SURCHARGE = 1;
+export const FREE_DELIVERY_MIN_PLATTERS = 3;
 
 export const GALLERY = [
   SEAFOOD_PAN.img,
@@ -105,7 +150,7 @@ export const GALLERY = [
 export const FAQ = [
   {
     q: 'How do I place an order?',
-    a: `Call or text ${BRAND.phone} with your platter picks and choice of 2 sides. We'll confirm your total and pickup/delivery details.`,
+    a: `Tap "Order online", choose pickup or delivery, add your platters and sides, then check out. Your order is sent to ${BRAND.phone} by text and we'll confirm it. You can also just text or call us.`,
   },
   {
     q: 'How do I pay?',
